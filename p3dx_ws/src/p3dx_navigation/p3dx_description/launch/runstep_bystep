@@ -1,0 +1,12 @@
+roscore
+
+roslaunch '/home/rvl/guosheng/p3dx_ws/src/p3dx_navigation/p3dx_description/launch/LMS1xx.launch' 
+
+roslaunch '/home/rvl/guosheng/p3dx_ws/src/p3dx_navigation/p3dx_description/launch/fake_p3dx.launch'
+
+ roslaunch '/home/rvl/guosheng/p3dx_ws/src/p3dx_navigation/p3dx_deption/launch/p3dxxx.launch' 
+
+roslaunch '/home/rvl/guosheng/p3dx_ws/src/p3dx_navigation/p3dx_description/launch/p3dx_teleop.launch' 
+
+ roslaunch '/home/rvl/guosheng/p3dx_ws/src/p3dx_navigation/robot_pose_ekf/robot_pose_ekf.launch' 
+

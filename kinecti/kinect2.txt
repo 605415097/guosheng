@@ -1,0 +1,20 @@
+roscore
+catkin_ws
+rosrun kinect2_bridge kinect2_bridge _depth_method:=opengl _reg_method:=cpu
+rosrun kinect2_viewer kinect2_viewer
+
+
+roslaunch bringup kinect2_depthimage_to_laserscan_rviz_view.launch
+rosrun gmapping slam_gmapping
+
+
+//
+
+
+
+
+//cd p3dx:
+roslaunch '/home/rvl/guosheng/p3dx_ws/src/p3dx_navigation/p3dx_description/launch/gmapping_2.launch' 
+
+//roslaunch kinect2_gmapping.launch
+roslaunch kinect2_gmapping_rviz_view.launch
