@@ -1,0 +1,8 @@
+
+
+<launch>
+
+    <!--start rviz view -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find bringup)/rviz/kinect2_gmapping.rviz" />
+
+</launch>

@@ -1,0 +1,23 @@
+<launch>
+<node pkg="tf" type="static_transform_publisher" name="imu_tf" args="-0.2 -0.12 0.25 0 0 0 1 /base_link /imu 20"/>
+<node pkg="tf" type="static_transform_publisher" name="gps_tf" args="-0.2 -0.12 0.25 0 0 0 1 /base_link /gps 20"/>
+
+<node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+  <param name="output_frame" value="odom"/>
+  <param name="base_footprint_frame" value="base_footprint"/>
+  <param name="freq" value="10.0"/>
+  <param name="sensor_timeout" value="1.0"/>  
+  <param name="odom_used" value="true"/>
+  <param name="imu_used" value="true"/>
+  <param name="vo_used" value="true"/>
+
+  <!-- remap from="rosaria/cmd_vel" to="cmd_vel"/ -->
+  <!-- remap from="odom" to="odom"/ -->
+  <!--<remap from="vo" to="slam/pos"/>-->
+  <remap from="imu_data" to="android/imu"/>
+  <remap from="vo" to="/gps/odom"/>
+
+</node>
+
+</launch>
+
