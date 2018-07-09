@@ -1,0 +1,22 @@
+<launch>
+
+<!-- Starting rosaria driver for motors and encoders -->
+  <arg name="model" default="$(find p3dx_description)/urdf/pioneer3dx.xml"/>
+  <arg name="gui" default="False" />
+  <param name="robot_description" textfile="$(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+
+  <node name="rosaria" pkg="rosaria" type="RosAria" args="_port:=/dev/ttyUSB0">
+ 
+  <remap from="rosaria/cmd_vel" to="cmd_vel"/>
+  <remap from="rosaria/pose" to="odom"/>
+  </node>
+
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+
+  </node>
+
+</launch>
